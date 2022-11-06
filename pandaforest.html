@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>旅するパンダ</title>
+  <link rel="icon" href="img/panda.png">
+</head>
+
+<body>
+  <header class="header_together">
+    <img id="savepanda" src="img/savepanda.png">
+    <img id="panda_title" src="img/title.png">
+  </header>
+
+  <main>
+    <!-- メインコンテンツ -->
+    <div id="content">
+      <p id="score"></p>
+      <div id="result">
+        <img id="food" src="img/forest.jpeg" alt="food">
+      </div>
+
+      <p id="step" class="score_gameover">パンダの体力</p>
+      <div class="btn">
+        <div class="left">
+          <img id="eat" src="img/cheese.png">
+        </div>
+        <div class="right">
+          <img id="run" src="img/print.png">
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <footer>
+    <small>Panda in the Forest</small>
+  </footer>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+
+
+
+
+    //画像を入れる
+    // const imgapple = document.createElement("img");
+    // imgapple.src = "img/apple.png";
+
+    // const imgbamboo = document.createElement("img");
+    // imgbamboo.src = "img/bamboo.png";
+
+    // const imgbear = document.createElement("img");
+    // imgbear.src = "img/bear.png";
+
+    // const imgsad = document.createElement("img");
+    // imgsad.src = "img/sad.png";
+
+    // const imgpear = document.createElement("img");
+    // imgpear.src = "img/pear.png";
+
+
+    //メインのゲームの内容
+    //gameover処理：まだ生きてる時^^
+    // let gameend = false
+
+
+    // 食べる関数
+    // console.log(random_eat);
+
+    //点数の処理
+    var point = 5;
+    $("#score").text(point)
+
+
+    //食べる選択をしたら
+    $("#eat").on("click", function () {
+      const random_eat = Math.floor(Math.random() * 4);
+      // console.log(random_eat)
+
+      if (random_eat === 0) {
+        $("#step").text("ゲームオーバー");
+        $("#score").text(point -= 50);
+        $('#food').attr("src", "img/bear.png");
+        // point -= 50;
+        console.log(point)
+
+      } else if (random_eat === 1) {
+        $("#step").text("HP-2");
+        $("#score").text(point -= 2);
+        $('#food').attr("src", "img/apple.png");
+        // point -= 2;
+
+      } else if (random_eat === 2) {
+        $("#step").text("HP+1");
+        $("#score").text(point += 1);
+        $('#food').attr("src", "img/pear.png");
+        // point += 1;
+
+      } else {
+        $("#step").text("HP+2");
+        $("#score").text(point += 2);
+        $('#food').attr("src", "img/bamboo.png");
+        // point += 2;
+      }
+      if (point <= 0) {
+        window.location.href = "gameend.html";
+      };
+
+      if (point >= 10) {
+        window.location.href = "gamewin.html";
+      }
+
+    });
+
+    // 歩く選択したら▶︎減点される
+    $("#run").on("click", function () {
+      $("#step").text("HP-1");
+      $("#score").text(point -= 1);
+      $("#food").attr("src", "img/sad.png");
+      // point -= 1;
+
+      if (point <= 0) {
+        // alert("パンダ脱出できず");
+        // console.log(gameend);
+        window.location.href = "gameend.html";
+        // $("#food").attr("src", "https://tenor.com/search/panda-gifs" + "?" + timestamp);
+      }
+
+      if (point >= 10) {
+        window.location.href = "gamewin.html";
+      }
+
+    });
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+body {
+    font-size: 32px;
+    width: 960px;
+    justify-content: center;
+}
+
+header {
+    background-color: #fff;
+    /* border-bottom: 1px solid #ccc; */
+    text-align: center;
+    display: flex;
+
+}
+
+/* パンダの画面 */
+#pandahead {
+    transform: scale(-1, 1);
+    display: flex;
+}
+
+/* 回るパンダアイコン */
+#savepanda {
+    margin-left: 200px;
+    display: inline-block;
+    width: 100px;
+    margin: 50px;
+    height: 100px;
+    margin: 30px;
+    animation: 3s linear infinite rotation1;
+}
+
+/* 「旅するパンダ」タイトル */
+#panda_title {
+    height: 100px;
+    margin-top: 30px;
+}
+
+@keyframes rotation1 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* headerをくっつく */
+.header_together {
+    justify-content: center;
+    justify-items: center;
+}
+
+footer {
+    background-color: #56A69E;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: #FFF;
+}
+
+p {
+    font-size: 150%;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    height: 80px;
+}
+
+h1 {
+    margin-left: 100px;
+    margin-bottom: 50px;
+    color: #2EA66E;
+}
+
+.panda_text {
+    text-align: center;
+    font-size: 25px;
+    height: 400px;
+}
+
+ul {
+    padding: 0;
+    border-top: 1px solid #000000;
+    display: table;
+    /* 定義 */
+    table-layout: fixed;
+    width: 100%;
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display: table-cell;
+    /* 定義 */
+    cursor: pointer;
+}
+
+
+#eat:hover {
+    transform: scale(1.1);
+    /* 拡大 */
+}
+
+#run:hover {
+    transform: scale(1.1);
+    /* 拡大 */
+}
+
+.left {
+    margin-left: 200px;
+    margin-right: 50px;
+    width: 150px;
+}
+
+.right {
+    margin-right: 180px;
+    margin-left: 140px;
+    width: 150px;
+}
+
+.btn {
+    justify-content: space-between;
+    display: flex;
+    height: 200px;
+    width: 80px;
+    margin-bottom: 150px;
+}
+
+#eat {
+    width: 150px;
+}
+
+#run {
+    width: 150px;
+}
+
+/* botton */
+.btn_panda {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    display: block;
+    padding: 10px 50px 10px 50px;
+    /* 左右に矢印を置くためのスペースを空ける */
+    background: #00ABB3;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    height: 50px;
+}
+
+.btn_panda:hover {
+    transform: scale(1.1);
+    /* 拡大 */
+}
+
+#food {
+    /* margin-top: 50px; */
+    width: 150px;
+    height: 150px;
+    margin-left: 400px;
+}
+
+/* gameover 処理 */
+#gameover {
+    display: none;
+}
