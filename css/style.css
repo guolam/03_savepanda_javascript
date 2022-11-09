@@ -1,0 +1,221 @@
+/* 全体設定 */
+body {
+    font-size: 32px;
+    width: 1000px;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+
+header {
+    background-color: #fff;
+    /* border-bottom: 1px solid #ccc; */
+    text-align: center;
+    display: flex;
+
+}
+
+/* パンダの画面 */
+#pandahead {
+    transform: scale(-1, 1);
+    display: flex;
+}
+
+/* 回るパンダアイコン */
+#savepanda {
+    margin-left: 200px;
+    display: inline-block;
+    width: 100px;
+    margin: 50px;
+    height: 100px;
+    margin: 30px;
+    animation: 3s linear infinite rotation1;
+}
+
+@keyframes rotation1 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 「旅するパンダ」タイトル */
+#panda_title {
+    height: 100px;
+    margin-top: 30px;
+}
+
+
+/* headerをくっつく */
+.header_together {
+    justify-content: center;
+    justify-items: center;
+}
+
+
+footer {
+    background-color: #56A69E;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: #FFF;
+}
+
+p {
+    text-align: center;
+    /* border-bottom: 1px solid #fff; */
+    height: 60px;
+}
+
+h1 {
+    text-align: center;
+    /* margin-bottom: 50px; */
+    color: #2EA66E;
+}
+
+/* coverpageの材料 */
+.panda_text {
+    text-align: center;
+    font-size: 25px;
+    height: 700px;
+}
+
+#pandamove {
+    width: 1000px;
+
+}
+
+#pandamove img {
+    width: 10%;
+}
+
+
+
+/*start botton */
+.btn_panda {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* display: block; */
+    padding: 10px 50px 10px 50px;
+    /* 左右に矢印を置くためのスペースを空ける */
+    background: #00ABB3;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    height: 50px;
+
+}
+
+.flame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn_panda:hover {
+    transform: scale(1.1);
+    /* 拡大 */
+}
+
+.link_font {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.win_lose {
+    height: 500px;
+}
+
+/* 道具ページにあるもの */
+
+.tool_list {
+    margin-left: 800px;
+    margin-bottom: 200px;
+    font-size: 20px;
+    width: 550px;
+    text-align: left;
+    justify-content: center;
+    display: inline;
+}
+
+.list {
+    display: block;
+}
+
+.intro_text {
+    font-size: 20px;
+    text-align: center;
+    height: 100px;
+
+}
+
+.center_box {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    width: 350px;
+    margin-bottom: 80px;
+}
+
+footer {
+    background-color: #56A69E;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: #FFF;
+    margin-top: 80px;
+}
+
+
+/* ゲームページの項目 */
+
+#eat:hover {
+    transform: scale(1.1);
+    /* 拡大 */
+}
+
+#run:hover {
+    transform: scale(1.1);
+    /* 拡大 */
+}
+
+.left {
+    margin-left: 250px;
+    margin-right: 50px;
+    width: 150px;
+}
+
+.right {
+    margin-right: 180px;
+    margin-left: 140px;
+    width: 150px;
+}
+
+.btn {
+    justify-content: space-between;
+    display: flex;
+    height: 100px;
+    width: 80px;
+    margin-bottom: 150px;
+}
+
+#eat {
+    width: 150px;
+}
+
+#run {
+    width: 150px;
+}
+
+
+
+#food {
+    /* margin-top: 50px; */
+    /* width: 300px; */
+    height: 200px;
+    /* margin-left: 100px; */
+}
