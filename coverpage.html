@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
     <title>旅するパンダ</title>
     <link rel="icon" href="img/panda.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -19,27 +23,87 @@
 
     <!-- カバーページ -->
     <p class="panda_text">
-        【状況説明】
+        【状況説明】<br>
         パンダは森の中で迷子になってます。<br>
         パンダは前進すると食べるしかできないので、<br>
         <br>
-        【ルール】
+        【ルール】<br>
         HPが10ポイントになったらパンダが森から脱出できます<br>
         そして、HPが0になったら、パンダが体力が尽き、
         森から出られなくなります!!<br>
-
+        <br>
         【遊び方】
-        「前進する」▶︎HP-1<br>
-        「食べる」▶︎食べ物によって、HPが上がったり、下がったりします。<br>
+        <br>
+        「前進する」▶︎ランダムにHP-1 / HP+1<br>
+        「食べる」　▶︎食べ物によって、HPが上がったり、下がったりします。<br>
+        クマ　:-5<br>
+        りんご:-2<br>
+        ナシ :+1<br>
+        ササ :+2<br>
+
         運が悪ければクマに襲われて、命の危機に晒されるかも...<br>
         <br>
-        さて、パンダを森に救出できるか？<br>
+        さて、パンダを森に救出できるのか？<br>
     </p>
 
-    <a div class="btn_panda fit" href="pandaforest.html">
-        Start
-    </a>
+    <div id="pandamove">
+        <marquee direction="right" scrollamount="8">
+            <img src="img/pandamove.png">
+            <img src="img/pandamove.png">
+            <img src="img/pandamove.png">
+        </marquee>
+    </div>
 
+
+</body>
+
+<a div class="btn_panda fit" href="pandaforest.html">
+    Start
+</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    // (function () {
+    //     tween();
+    //     function tween() {
+    //         $("#pandamove")
+    //             .css({ left: 0 }) // 初期値
+    //             .animate({ left: 800 },
+    //                 3000, // ミリ秒指定
+    //                 "linear", // 加減速の種類
+    //                 function () {
+    //                     tween();
+    //                 }
+    //             );
+    //     }
+    // });
+
+    function come(divID, speed, x) //左から移動する関数。
+    {
+        x += speed;
+        scrollOBJ = document.all[divID].style;
+        scrollOBJ.left = x; //オブジェクト移動。
+        scrollOBJ.visibility = "visible"; //表示させる。
+        scrollOBJ.filter = "FlipH()"; //左右反転。
+        startPos = document.body.clientWidth; //スタート位置取得。
+        if (x != startPos) setTimeout("come('" + divID + "'," + speed + "," + x + ")", sec) //スタート位置まで再帰処理。
+        else ComeGoStart(divID, speed); //スタート位置ならば関数ComeGoStartへ（最初から）。
+    }
+
+    function ComeGoStart(divID, speed) {
+        if ((!document.all && document.getElementById) || document.layers)　//ネスケは表示するだけ。
+        {
+            if (document.layers) nnOBJ = document.layers[divID];
+            if (document.getElementById) nnOBJ = document.getElementById(divID).style;
+            nnOBJ.visibility = "visible";
+        }
+        else //IEは関数goooへ。
+        {
+            startPos = document.body.clientWidth; //スタート位置取得。
+            setTimeout("gooo('" + divID + "'," + speed + "," + startPos + ")", sec);
+        }
+    }
+</script>
 
 </body>
 <footer>

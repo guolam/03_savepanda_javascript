@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <title>旅するパンダ</title>
     <link rel="icon" href="img/panda.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 </head>
 
 
@@ -32,7 +35,7 @@
                 <input type="checkbox">水 : 目安：1時間あたり、500ml
             </label>
             <label class="list">
-                <input type="checkbox"> 登山靴
+                <input type="checkbox">登山靴
             </label>
             <label class="list">
                 <input type="checkbox">軽装
@@ -62,10 +65,10 @@
                 <input type="checkbox">鈴
             </label>
             <label class="list">
-                <input type="checkbox">駐車場やバスを使う場合、小銭の準備
+                <input type="checkbox">小銭
             </label>
             <label class="list">
-                <input type="checkbox">山小屋を使う場合、ピローカバー、シート
+                <input type="checkbox">ピローカバー、シート
             </label>
             <label class="list">
                 <input type="checkbox">山頂で食べるもの
@@ -77,17 +80,28 @@
         <input type="button" class="btn_panda" value="このページを印刷する" onclick="window.print();">
     </form>
 
-    <a div class="btn_panda fit" href="pandaforest.html">
-        山診断へ
-    </a>
+    <form>
+        <input type="button" class="btn_panda" value="山診断へ" onclick="window.open('hikingpage/mountain.html')">
+    </form>
 
+    <form>
+        <input type="button" class="btn_panda" value="もう一回遊ぶ" onclick="location.href='pandaforest.html'">
+    </form>
 
-    <a div class="btn_panda fit" href="pandaforest.html">
-        もう一回遊ぶ
-    </a>
+    <!-- <form>
+        <input type="button"a div class="btn_panda fit" href="yama page/">
+            山診断へ
+        </a>
+    </form>
 
-    <a div href="coverpage.html">
-        ゲームトップに戻る
+    <form>
+        <a div class="btn_panda fit" href="pandaforest.html";>
+            もう一回遊ぶ
+        </a>
+    </form> -->
+
+    <a class="link_font" href="coverpage.html">
+        トップへ戻る
     </a>
 </body>
 <footer>

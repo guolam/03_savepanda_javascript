@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="css/style.css">
   <title>旅するパンダ</title>
   <link rel="icon" href="img/panda.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -16,14 +20,33 @@
   </header>
 
   <main>
+    <!-- オーディオ -->
+    <audio src="bgm/angry.mp3" id="play-button"></audio>
+    <audio src="bgm/shine.mp3" id="play-button0"></audio>
+    <audio src="bgm/pokan.mp3" id="play-button1"></audio>
+    <audio src="bgm/puyon.mp3" id="play-button2"></audio>
+
+
     <!-- メインコンテンツ -->
     <div id="content">
       <p id="score"></p>
       <div id="result">
-        <img id="food" src="img/forest.jpeg" alt="food">
+        <img id="food" src="img/panda_slide.gif" alt="food">
       </div>
 
-      <p id="step" class="score_gameover">パンダの体力</p>
+      <p id="step">パンダの運命は？</p>
+
+      <!-- ライフゲージ
+      <div id="life-frame">
+        <div id="life-bar"></div>
+        <div id="life-mark"></div>
+      </div> -->
+
+      <!-- <div id="btns-wrap">
+        <div id="increase-btn" onclick="alterLife( 10 )">+</div>
+        <div id="decrease-btn" onclick="alterLife( -10 )">-</div>
+      </div> -->
+
       <div class="btn">
         <div class="left">
           <img id="eat" src="img/cheese.png">
@@ -34,6 +57,45 @@
       </div>
 
     </div>
+    <!-- 勝利画面 -->
+    <div id="win" style="display: none;">
+      <!-- <iframe type="text/html" width="950" height="550"
+        src="https://www.youtube.com/embed/3j9F6ZK0Qwo?autoplay=1&mute=1&loop=1&list=PLj0D5aSP7hfrVqLFIQkLHn_lWJCegwQ7P"></iframe>
+      <script type=" text/javascript" async src="https://tenor.com/embed.js"></script> -->
+
+      <video src="video/congratulations.mp4" loop autoplay muted></video>
+      <div class="win_lost">
+        <p>おめでとうございます！<br>
+          パンダが森から脱出！</p>
+      </div>
+      <div class="flame">
+        <a div class="btn_panda" href="mountainrule.html">次へ</a>
+        <a class="link_font" href="pandaforest.html">もう一回遊ぶ</a>
+      </div>
+    </div>
+
+    <!-- 敗北画面 -->
+    <div id="lose" style="display: none;">
+      <!-- <iframe type="text/html" width="950" height="550"
+        src="https://www.youtube.com/embed/xHzm-Y4ywsA?autoplay=1&mute=1&loop=1&list=PLj0D5aSP7hfo_rV66Xn1-kkXlZr5jh5Bo"></iframe> -->
+
+      <video src="video/endgame.mp4" loop autoplay muted></video>
+
+      <p>残念！パンダが天に召された</p>
+      <div class="flame">
+        <a div class="btn_panda" href="mountainrule.html">次へ</a>
+        <a class="link_font" href="pandaforest.html">もう一回遊ぶ</a>
+      </div>
+    </div>
+
+    <div id="pandamove">
+      <marquee direction="right" scrollamount="8">
+        <img src="img/pandamove.png">
+        <img src="img/pandamove.png">
+        <img src="img/pandamove.png">
+      </marquee>
+    </div>
+
   </main>
 
 
@@ -45,38 +107,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script>
 
+    $("#test").hide();
+    $("#content").show();
 
-
-
-    //画像を入れる
-    // const imgapple = document.createElement("img");
-    // imgapple.src = "img/apple.png";
-
-    // const imgbamboo = document.createElement("img");
-    // imgbamboo.src = "img/bamboo.png";
-
-    // const imgbear = document.createElement("img");
-    // imgbear.src = "img/bear.png";
-
-    // const imgsad = document.createElement("img");
-    // imgsad.src = "img/sad.png";
-
-    // const imgpear = document.createElement("img");
-    // imgpear.src = "img/pear.png";
-
-
-    //メインのゲームの内容
-    //gameover処理：まだ生きてる時^^
-    // let gameend = false
-
-
-    // 食べる関数
-    // console.log(random_eat);
-
-    //点数の処理
     var point = 5;
-    $("#score").text(point)
 
+    $("#score").text("パンダの体力：" + point)
+    console.log()
 
     //食べる選択をしたら
     $("#eat").on("click", function () {
@@ -84,60 +121,124 @@
       // console.log(random_eat)
 
       if (random_eat === 0) {
-        $("#step").text("ゲームオーバー");
-        $("#score").text(point -= 50);
+        $("#step").text("HP-5");
+        $("#play-button").get(0).play();
+        $("#score").text("パンダの体力：" + (point -= 5));
         $('#food').attr("src", "img/bear.png");
+
         // point -= 50;
         console.log(point)
 
       } else if (random_eat === 1) {
         $("#step").text("HP-2");
-        $("#score").text(point -= 2);
+        $("#score").text("パンダの体力：" + (point -= 2));
         $('#food').attr("src", "img/apple.png");
+        $("#play-button1").get(0).play();
         // point -= 2;
 
       } else if (random_eat === 2) {
         $("#step").text("HP+1");
-        $("#score").text(point += 1);
+        $("#score").text("パンダの体力：" + (point += 1));
         $('#food').attr("src", "img/pear.png");
+        $("#play-button2").get(0).play();
         // point += 1;
 
       } else {
         $("#step").text("HP+2");
-        $("#score").text(point += 2);
+        $("#score").text("パンダの体力：" + (point += 2));
         $('#food').attr("src", "img/bamboo.png");
+        $("#play-button2").get(0).play();
         // point += 2;
       }
-      if (point <= 0) {
-        window.location.href = "gameend.html";
-      };
 
-      if (point >= 10) {
-        window.location.href = "gamewin.html";
+      if (point <= 3) { //ピンチ判定
+        $("#score").css("color", "red");
+      }
+
+      if (point >= 4) { //回復判定
+        $("#score").css("color", "black");
+      }
+
+      if (point <= 0) { //負け判定
+        $("#lose").show();
+        $("#content").hide();
+        $("#play-button").get(0).play();
+      }
+
+      if (point >= 10) { //勝ち判定
+        $("#win").show();
+        $("#content").hide();
+        $("#play-button0").get(0).play();
       }
 
     });
 
-    // 歩く選択したら▶︎減点される
+    // 歩く選択したら▶︎減点される / +1点
     $("#run").on("click", function () {
-      $("#step").text("HP-1");
-      $("#score").text(point -= 1);
-      $("#food").attr("src", "img/sad.png");
-      // point -= 1;
+      const random_run = Math.floor(Math.random() * 2);
+      // console.log(random_run)
 
-      if (point <= 0) {
-        // alert("パンダ脱出できず");
-        // console.log(gameend);
-        window.location.href = "gameend.html";
-        // $("#food").attr("src", "https://tenor.com/search/panda-gifs" + "?" + timestamp);
+      if (random_run === 0) {
+        $("#step").text("HP-1");
+        $("#score").text("パンダの体力：" + (point -= 1));
+        $("#food").attr("src", "img/panda_run1.gif");
+        $("#play-button1").get(0).play();
+
+        console.log(point)
+
+      } else {
+        $("#step").text("HP+1");
+        $("#score").text("パンダの体力：" + (point += 1));
+        $("#food").attr("src", "img/panda_run2.gif");
+        $("#play-button2").get(0).play();
+      }
+      if (point <= 3) { //ピンチ判定
+        $("#score").css("color", "red");
       }
 
-      if (point >= 10) {
-        window.location.href = "gamewin.html";
+      if (point >= 4) { //回復判定
+        $("#score").css("color", "black");
       }
+      if (point <= 0) { //負け判定
+        $("#lose").show();
+        $("#content").hide();
+        $("#play-button").get(0).play();
+      }
+
+      if (point >= 10) { //勝ち判定
+        $("#win").show();
+        $("#content").hide();
+        $("#play-button0").get(0).play();
+      }
+
 
     });
 
+    function come(divID, speed, x) //左から移動する関数。
+    {
+      x += speed;
+      scrollOBJ = document.all[divID].style;
+      scrollOBJ.left = x; //オブジェクト移動。
+      scrollOBJ.visibility = "visible"; //表示させる。
+      scrollOBJ.filter = "FlipH()"; //左右反転。
+      startPos = document.body.clientWidth; //スタート位置取得。
+      if (x != startPos) setTimeout("come('" + divID + "'," + speed + "," + x + ")", sec) //スタート位置まで再帰処理。
+      else ComeGoStart(divID, speed); //スタート位置ならば関数ComeGoStartへ（最初から）。
+    }
+
+    function ComeGoStart(divID, speed) {
+      if ((!document.all && document.getElementById) || document.layers)　//ネスケは表示するだけ。
+      {
+        if (document.layers) nnOBJ = document.layers[divID];
+        if (document.getElementById) nnOBJ = document.getElementById(divID).style;
+        nnOBJ.visibility = "visible";
+      }
+      else //IEは関数goooへ。
+      {
+        startPos = document.body.clientWidth; //スタート位置取得。
+        setTimeout("gooo('" + divID + "'," + speed + "," + startPos + ")", sec);
+      }
+    }
 
   </script>
 
