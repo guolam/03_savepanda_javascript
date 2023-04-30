@@ -6,7 +6,7 @@ updated at: 2022/11/12
 ## DEMO
 
 Save the Panda!
-https://guolam.github.io/savepanda/coverpage.html
+https://guolam.sakura.ne.jp/savepanda/coverpage
 
 ## 紹介と使い方
 
